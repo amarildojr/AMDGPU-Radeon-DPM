@@ -1,0 +1,3 @@
+To clone DRM-Next:
+
+git clone -b drm-next-4.8-wip-si git://people.freedesktop.org/~agd5f/linux
