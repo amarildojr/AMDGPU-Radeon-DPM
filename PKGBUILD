@@ -1,0 +1,67 @@
+See the end of this:
+
+source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${_pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${_pkgver}.sign"
+        "https://grsecurity.net/test/$_grsec_patch"
+        "https://grsecurity.net/test/${_grsec_patch}.sig"
+        # the main kernel config files
+        'config' 'config.x86_64'
+        # standard config files for mkinitcpio ramdisk
+        'linux.preset'
+        'change-default-console-loglevel.patch'
+        # DPM Patch
+        'dpm.patch')
+        
+
+
+---------------------------------------------
+
+
+Don't forget to add the SHA256SUM of the dpm.patch file at the end:
+
+sha256sums=('a93771cd5a8ad27798f22e9240538dfea48d3a2bf2a6a6ab415de3f02d25d866'
+            'SKIP'
+            '036f83f8a3475d9e7e0b8edc188f9a4f495abc3b187ed87748cdbc063c0c419f'
+            'SKIP'
+            '85f34f61ee52703d9779ccebe112d74d111e4473ae52091de70b877e0efba8a0'
+            'SKIP'
+            'de52f89abfef30d40239725ab298ee2028aef5a2b9c807ddaf4e9eff7ddc35df'
+            'efd40ee94a0845b23ebb2f2b5675dfb8d56dfa149b97f13bea98624bd6b589af'
+            'ca7e718375b3790888756cc0a64a7500cd57dddb9bf7e10a0df22c860d91f74d'
+            '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
+            '9ba344bae78dcb1fd61785bd059157e0c3aaee205de994f8dcb27c7d50672beb')
+
+
+------------------------------------------------
+
+
+Edit the end of the "Prepare" chunk:
+
+prepare() {
+  cd "${srcdir}/${_srcname}"
+
+  # add upstream patch
+  patch -p1 -i "${srcdir}/patch-${_pkgver}"
+
+  # add latest fixes from stable queue, if needed
+  # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
+
+  # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
+  # remove this when a Kconfig knob is made available by upstream
+  # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
+  patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
+
+  # Add grsecurity patches
+  patch -Np1 -i "$srcdir/$_grsec_patch"
+  rm localversion-grsec
+  
+  # Add DPM patch
+  #cp /home/amarildo/Documents/grsec/dpm.patch ${srcdir}/dpm.patch
+  patch -Np1 --ignore-whitespace -i "${srcdir}/dpm.patch"
+  
+----------------------------------------------------
+
+
+To see the full PKGBUILD of GRSec: http://paste.opensuse.org/view/raw/10483368
