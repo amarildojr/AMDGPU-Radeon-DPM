@@ -58,7 +58,6 @@ prepare() {
   rm localversion-grsec
   
   # Add DPM patch
-  #cp /home/amarildo/Documents/grsec/dpm.patch ${srcdir}/dpm.patch
   patch -Np1 --ignore-whitespace -i "${srcdir}/dpm.patch"
   
 ----------------------------------------------------
