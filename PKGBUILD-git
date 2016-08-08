@@ -4,6 +4,7 @@
 # Contributor: Jonathan Chan <jyc@fastmail.fm>
 # Contributor: misc <tastky@gmail.com>
 # Contributor: NextHendrix <cjones12 at sheffield.ac.uk>
+# Contributor: Amarildo Junior <cmte.amarildo.sjr@gmail.com>
 
 pkgbase=linux-git
 _srcname=linux
@@ -23,8 +24,9 @@ source=("git+https://cgit.freedesktop.org/~agd5f/linux#branch=drm-next-4.9-si"
         "${pkgbase}.preset")
 sha256sums=('SKIP'
             '9ba344bae78dcb1fd61785bd059157e0c3aaee205de994f8dcb27c7d50672beb'
-            '02e8b02e8cd10aa059917a489a9663e7f66bdf12c5ae8a1e0369bb2862da6b68'
-            'cd79a80d94155642d3b3415e79712a8d0b6b25e41d8bc6fd9aca48a142de9b89'
+            '995c7bd3922fafb90d63bfde5a54ce42ef1b85724f2b5463eab48b4a2dd86f5a'
+            '6aae3809dfe04b4e3b19034483948f323267dc7ebd6ce4847aac1bedaddeb018'
+            '394810dc280779c957db2f48ad4007dc28f02aa1568f2302f0bb3df448a949a5'
             '95fcfdfcb9d540d1a1428ce61e493ddf2c2a8ec96c8573deeadbb4ee407508c7')
 
 _kernelname=${pkgbase#linux}
@@ -278,16 +280,3 @@ for _p in ${pkgname[@]}; do
     _package${_p#${pkgbase}}
   }"
 done
-
-# vim:set ts=8 sts=2 sw=2 et:
-sha256sums=('SKIP'
-            '9ba344bae78dcb1fd61785bd059157e0c3aaee205de994f8dcb27c7d50672beb'
-            '6aae3809dfe04b4e3b19034483948f323267dc7ebd6ce4847aac1bedaddeb018'
-            '394810dc280779c957db2f48ad4007dc28f02aa1568f2302f0bb3df448a949a5'
-            '95fcfdfcb9d540d1a1428ce61e493ddf2c2a8ec96c8573deeadbb4ee407508c7')
-sha256sums=('SKIP'
-            '9ba344bae78dcb1fd61785bd059157e0c3aaee205de994f8dcb27c7d50672beb'
-            '191d5a2eae88a29268c2938a9d7601bcc1f1a1d5808ec4d11aac9838591cae67'
-            '6aae3809dfe04b4e3b19034483948f323267dc7ebd6ce4847aac1bedaddeb018'
-            '394810dc280779c957db2f48ad4007dc28f02aa1568f2302f0bb3df448a949a5'
-            '95fcfdfcb9d540d1a1428ce61e493ddf2c2a8ec96c8573deeadbb4ee407508c7')
