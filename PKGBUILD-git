@@ -1,10 +1,4 @@
-# Maintainer: Boohbah <boohbah at gmail.com>
-# Contributor: Tobias Powalowski <tpowa@archlinux.org>
-# Contributor: Thomas Baechler <thomas@archlinux.org>
-# Contributor: Jonathan Chan <jyc@fastmail.fm>
-# Contributor: misc <tastky@gmail.com>
-# Contributor: NextHendrix <cjones12 at sheffield.ac.uk>
-# Contributor: Amarildo Junior <cmte.amarildo.sjr@gmail.com>
+# Maintainer: Amarildo Junior <https://github.com/amarildojr>
 
 pkgbase=linux-git
 _srcname=linux
