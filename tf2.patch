@@ -1,7 +1,5 @@
-diff --git a/1 b/2
-index 371513a..9dfcede 100644
---- a/1
-+++ b/2
+--- a/drivers/gpu/drm/radeon/si_dpm.c	
++++ a/drivers/gpu/drm/radeon/si_dpm.c
 @@ -499,7 +499,7 @@ static const struct si_cac_config_reg lcac_pitcairn[] =
  
  static const struct si_cac_config_reg cac_override_pitcairn[] =
