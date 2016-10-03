@@ -7,7 +7,6 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://grsecurity.net/test/$_grsec_patch"
         "https://grsecurity.net/test/${_grsec_patch}.sig"
         "https://raw.githubusercontent.com/amarildojr/AMDGPU-Radeon-DPM/master/dpm.patch"
-        "https://raw.githubusercontent.com/amarildojr/AMDGPU-Radeon-DPM/master/tf2.patch"
         # the main kernel config files
         'config' 'config.x86_64'
         # standard config files for mkinitcpio ramdisk
@@ -28,7 +27,6 @@ sha256sums=('a93771cd5a8ad27798f22e9240538dfea48d3a2bf2a6a6ab415de3f02d25d866'
             '85f34f61ee52703d9779ccebe112d74d111e4473ae52091de70b877e0efba8a0'
             'SKIP'
             '9ba344bae78dcb1fd61785bd059157e0c3aaee205de994f8dcb27c7d50672beb'
-            '13a2cbfc47258c16576abe74e7ca09466fdf9718678c8afeda75c3b5da5d5644'
             'de52f89abfef30d40239725ab298ee2028aef5a2b9c807ddaf4e9eff7ddc35df'
             'efd40ee94a0845b23ebb2f2b5675dfb8d56dfa149b97f13bea98624bd6b589af'
             'ca7e718375b3790888756cc0a64a7500cd57dddb9bf7e10a0df22c860d91f74d'
@@ -60,9 +58,6 @@ prepare() {
   
   # Add DPM patch
   patch -Np1 --ignore-whitespace -i "${srcdir}/dpm.patch"
-  
-  # Add TF2 patch
-  patch -Np1 --ignore-whitespace -i "${srcdir}/tf2.patch"
   
 ----------------------------------------------------
 
